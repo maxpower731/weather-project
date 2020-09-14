@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'weather-app';
-  
+  weatherFormVisible:boolean = false;
+
+  showWeatherForm() {
+    this.weatherFormVisible = true;
+  }
+
+
 }

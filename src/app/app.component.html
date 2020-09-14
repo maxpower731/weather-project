@@ -6,7 +6,7 @@
             Max's Weather App
         </a>
         <span>
-            <button type="button" class="btn btn-link mr-1"
+            <button (click)="showWeatherForm()" type="button" class="btn btn-link mr-1"
                 tooltip="Enter wind and weather information to view airports">
             Weather Form
         </button>
@@ -20,5 +20,4 @@
     </div>
 </nav>
 
-
-<app-weatherform></app-weatherform>
+<app-weatherform *ngIf="weatherFormVisible"></app-weatherform>

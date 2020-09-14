@@ -9,16 +9,10 @@ import { Metar } from '../metar';
 })
 export class WeatherformComponent implements OnInit {
 
-  submitted = false;
-
-  onSubmit() {
-    this.submitted = true;
-  }
-
   constructor() { }
 
   ngOnInit(): void {
-    
+
   }
 
 }
