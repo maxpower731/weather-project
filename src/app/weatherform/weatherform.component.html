@@ -1,5 +1,5 @@
-<form class="container border mt-3">
-    <h2>Weather Form</h2>
+<form class="container mt-3">
+    <!-- <h2>Weather Form</h2> -->
     <div class="form-group">
         <label for="airportCode">Airport Code(s)</label>
             <input type="text" class="form-control" id="airportCodes"
@@ -7,7 +7,7 @@
     </div>
 
     <div class="form-group">
-        <label for="crosswindComponent">Crosswind Component</label>
+        <label for="crosswindComponent">Maximum Crosswind Component</label>
             <input type="number" min="0" class="form-control" id="crosswindComponent"
             placeholder="Enter maximum crosswind component in knots"/>
     </div>
@@ -53,7 +53,7 @@
 
     <div class="form-group">
         <label for="stateSelect"
-            title="Select multiple using ctrl or command key">Select states</label>
+            title="Select multiple states using the control or command key">Select States</label>
         <select multiple class="form-control" id="stateSelect">
             <option value="">-- UNITED STATES --</option>
             <option value="AL">Alabama</option>
@@ -107,6 +107,10 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
         </select>
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-primary">Submit</button>
     </div>
 
 </form>
