@@ -24,6 +24,9 @@ export class WeatherformComponent implements OnInit {
   // which can be done with {{weatherForm.value["key"]}}
   airportCodeVar:string;
 
+
+  //TODO: write parser to break out each airport and clean the output for the JSON file or for verifying airport is valid
+  // example " KTPA" would remove the leading space 
   onSubmit() {
     this.airportCodeVar = this.weatherForm.value["airportCode"];
     console.log("submitted weatherform");
