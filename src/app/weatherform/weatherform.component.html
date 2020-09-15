@@ -1,52 +1,67 @@
+
 <div>
     <!-- //TODO: need to add ngSubmit and TS code to handle submission of form -->
-    <form action="" method="POST" class="container mt-3" >
+    <form [formGroup]="weatherForm" (ngSubmit)="onSubmit()" class="container mt-3" >
 
+    <!-- Would be nice to validate airport codes in real time by querying database, query to begin only after at least 3 characters entered -->
         <div class="form-group">
             <label for="airportCode">Airport Code(s)</label>
-                <input type="text" class="form-control" id="airportCodes"
+                <input formControlName="airportCode" type="text" class="form-control" id="airportCode"
                 placeholder="Enter airport codes separated by commas (optional)"/>
         </div>
 
+        <!-- Refactor this code to use for airport codes, will add a new form element with a button press
+        <div formArrayName="aliases">
+            <h3>Aliases</h3> <button (click)="addAlias()">Add Alias</button>
+
+            <div *ngFor="let alias of aliases.controls; let i=index">
+              The repeated alias template
+              <label>
+                Alias:
+                <input type="text" [formControlName]="i">
+              </label>
+            </div>
+          </div> -->
+
         <div class="form-group">
             <label for="crosswindComponent">Maximum Crosswind Component</label>
-                <input type="number" min="0" class="form-control" id="crosswindComponent"
+                <input formControlName="maxCrosswind" type="number" min="0" class="form-control" id="crosswindComponent"
                 placeholder="Enter maximum crosswind component in knots"/>
         </div>
 
         <div class="form-group">
             <label for="windGustSelect">Include airports with gusting conditions?</label>
-            <select class="form-control" id="windGustSelect">
-            <option>Yes</option>
-            <option>No</option>
+            <select formControlName="gustingConditions" class="form-control" id="windGustSelect">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
             </select>
         </div>
 
-        <div class="container border mb-3">
+        <div formGroupName="weatherCategories" class="container border mb-3">
             <label>Select weather categories</label>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="LIFR" id="LIFR">
+                <input formControlName="lifr" class="form-check-input" type="checkbox" value="LIFR" id="LIFR">
                 <label class="form-check-label" for="LIFR" style="color:magenta">
                     LIFR
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="IFR" id="IFR">
+                <input formControlName="ifr" class="form-check-input" type="checkbox" value="IFR" id="IFR">
                 <label class="form-check-label" for="IFR" style="color:red">
                     IFR
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="MVFR" id="MVFR">
+                <input formControlName="mvfr" class="form-check-input" type="checkbox" value="MVFR" id="MVFR">
                 <label class="form-check-label" for="MVFR" style="color:blue">
                     MVFR
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="VFR" id="VFR">
+                <input formControlName="vfr" class="form-check-input" type="checkbox" value="VFR" id="VFR">
                 <label class="form-check-label" for="VFR" style="color:green">
                     VFR
                 </label>
@@ -56,7 +71,7 @@
         <div class="form-group">
             <label for="stateSelect"
                 title="Select multiple states using the control or command key">Select States</label>
-            <select multiple class="form-control" id="stateSelect">
+            <select formControlName="states" multiple class="form-control" id="stateSelect">
                 <option value="">-- UNITED STATES --</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
